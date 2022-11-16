@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Project POM -->
+	<groupId>com.mycompany.sample</groupId>
+	<artifactId>dmoe-sample</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- Project Specific Properties -->
+	<properties>
+		<!-- General Properties -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Java Properties -->
+		<java.version>11</java.version>
+
+		<!-- Common Maven Plugins -->
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<maven.compiler.parameters>true</maven.compiler.parameters>
+		<maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
+		<maven.shade.plugin.version>3.2.4</maven.shade.plugin.version>
+		<maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+
+		<!-- Testing Properties -->
+		<junit.version>4.13.2</junit.version>
+		<skipTests>true</skipTests>
+
+		<!-- Logging Dependencies -->
+		<slf4j.version>1.7.32</slf4j.version>
+		<logback.version>1.2.10</logback.version>
+	</properties>
+
+	<!-- Project Specific Modules -->
+	<modules>
+		<module>fact-model</module>
+ 		<module>decision-services</module> 
+	</modules>
+</project>

@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "2f00f020-b53b-423f-87e9-13838d78a1ee",
+		"name": "Sample Decision Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23092969"
+	},
+	"item": [
+		{
+			"name": "BlackBox: Validate Example #1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mLOnlySync\": \"true\",\n    \"requestType\": \"medical\",\n    \"contextConfig\": [{\n        \"customerRecordID\": \"REOTIEte\",\n        \"benefitVerificationID\": \"BVID123\"\n    }],\n    \"patientProfile\": [{\n        \"firstName\": \"William\",\n        \"middleName\": \"C\",\n        \"gender\": \"M\",\n        \"SSN\": \"000-00-0000\"\n    }],\n    \"provider\": [{\n        \"firstName\": \"john\",\n        \"lastName\": \"doe\",\n        \"npi\": \"1111111111x\"\n    }],\n    \"site\": [{\n        \"name\": \"Upstate Living & Critical\",\n        \"npi\": \"123456789xx\"\n    }]\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/blackbox/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"blackbox",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BlackBox: Validate Provider",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mLOnlySync\": \"false\",\n    \"requestType\": \"medical\",\n    \"provider\": [{\n        \"firstName\": \"john\",\n        \"lastName\": \"doe\",\n        \"taxID\": \"234q4\",\n        \"npi\": \"111111111x\"\n    }]\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/blackbox/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"blackbox",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BlackBox: Validate Patient Profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mLOnlySync\": \"false\",\n    \"requestType\": \"medical\",\n    \"patientProfile\": [{\n        \"firstName\": \"William\",\n        \"middleName\": \"C\",\n        \"lastName\": \"Goins\",\n        \"gender\": \"M\",\n        \"dateOfBirth\": \"12/20/1978\",\n        \"SSN\": \"000-00-0000\"\n    }]\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/blackbox/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"blackbox",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BlackBox: Validate Site",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mLOnlySync\": \"false\",\n    \"requestType\": \"medical\",\n    \"patientProfile\": [{\n        \"firstName\": \"William\",\n        \"middleName\": \"C\",\n        \"lastName\": \"Goins\",\n        \"gender\": \"M\",\n        \"dateOfBirth\": \"12/20/1978\",\n        \"SSN\": \"000-00-0000\"\n    }]\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/blackbox/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"blackbox",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,27 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BlackBoxRuleUnit;
+
+import com.mycompany.sample.model.ContextConfig;
+
+/* 
+ * Context Config Validation Rules
+ */
+rule "Context Config - Customer Record ID Null Check" when
+    $contextConfig: /contextConfig [ customerRecordID == null || customerRecordID == "" ]
+then
+    $contextConfig.addValidationMessage("IncompleteInput-CustomerRecordIDisMissing", "customerRecordID is null!");
+end
+
+rule "Context Config - Benefit Verification ID Null Check" when
+    $contextConfig: /contextConfig [ benefitVerificationID == null || benefitVerificationID == "" ]
+then
+    $contextConfig.addValidationMessage("IncompleteInput-BenefitVerificationIDisMissing", "benefitVerificationID is null!");
+end
+
+rule "Context Config - Client ID Null Check" when
+    $contextConfig: /contextConfig [ clientID == null || clientID == "" ]
+then
+    $contextConfig.addValidationMessage("IncompleteInput-ClientIDisMissing", "clientID is null!");
+end

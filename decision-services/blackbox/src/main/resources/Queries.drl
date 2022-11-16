@@ -1,0 +1,30 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BlackBoxRuleUnit;
+
+/* 
+ * BlackBox Queries
+ */
+query ValidateAll
+   $contextConfig: /contextConfig
+   $patientProfile: /patientProfile
+   $provider: /provider
+   $site: /site
+end
+
+query ValidateContextConfig
+   $contextConfig: /contextConfig
+end
+
+query ValidatePatientProfile
+   $patientProfile: /patientProfile
+end
+
+query ValidateProvider
+   $provider: /provider
+end
+
+query ValidateSite
+   $site: /site
+end

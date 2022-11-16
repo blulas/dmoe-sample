@@ -1,0 +1,8 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BmsAsoRuleUnit;
+
+/* 
+ * Validation Rules
+ */

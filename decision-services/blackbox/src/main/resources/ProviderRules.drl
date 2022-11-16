@@ -1,0 +1,33 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BlackBoxRuleUnit;
+
+import com.mycompany.sample.model.Provider;
+
+/* 
+ * Provider Validation Rules
+ */
+rule "Provider - First Name Null Check" when
+    $provider: /provider [ firstName == null || firstName == "" ]
+then
+    $provider.addValidationMessage("IncompleteInput-ProviderFirstNameisMissing", "firstName is null!");
+end
+
+rule "Provider - Last Name Null Check" when
+    $provider: /provider [ lastName == null || lastName == "" ]
+then
+    $provider.addValidationMessage("IncompleteInput-ProviderLastNameisMissing", "lastName is null!");
+end
+
+rule "Provider - NPI Null Check" when
+    $provider: /provider [ NPI == null || NPI == "" ]
+then
+    $provider.addValidationMessage("IncompleteInput-ProviderNPIisMissing", "NPI is null!");
+end
+
+rule "Provider - NPI Format Check" when
+    $provider: /provider [ (NPI != null && NPI != "") && (!NPI.matches("[0-9]+") || NPI.length() != 10) ]
+then
+    $provider.addValidationMessage("ProviderNPI has incorrect format value", "Resubmit the request with accurate format.");
+end

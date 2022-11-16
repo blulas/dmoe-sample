@@ -1,0 +1,27 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BlackBoxRuleUnit;
+
+import com.mycompany.sample.model.Site;
+
+/* 
+ * Site Validation Rules
+ */
+rule "Non ML - Site - Name Null Check" when
+    $site: /site [ mLOnlySync == false, name == null || name == "" ]
+then
+    $site.addValidationMessage("IncompleteInput-SiteNameisMissing", "site name is null!");
+end
+
+rule "Non ML - Site  - NPI Null Check" when
+    $site: /site [ mLOnlySync == false, NPI != null && NPI != "" ]
+then
+    $site.addValidationMessage("IIncompleteInput-SiteNPIisMissing", "NPI is null!");
+end
+
+rule "Non ML - Site  - NPI Format Check" when
+    $site: /site [ mLOnlySync == false, (NPI != null && NPI != "") && (!NPI.matches("[0-9]+") || NPI.length() != 10) ]
+then
+    $site.addValidationMessage("IIncompleteInput-SiteNPIisMissing", "NPI is null!");
+end

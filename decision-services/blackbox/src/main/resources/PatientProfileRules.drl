@@ -1,0 +1,27 @@
+package com.mycompany.queries;
+
+// Rule unit import
+unit BlackBoxRuleUnit;
+
+import com.mycompany.sample.model.PatientProfile;
+
+/* 
+ * Patient Profile Validation Rules
+ */
+rule "Patient Profile - First Name Null Check" when
+    $patientProfile: /patientProfile [ firstName == null || firstName == "" ]
+then
+    $patientProfile.addValidationMessage("IncompleteInput-PatientFirstNameisMissing", "firstName is null!");
+end
+
+rule "Patient Profile - Last Name Null Check" when
+    $patientProfile: /patientProfile [ lastName == null || lastName == "" ]
+then
+    $patientProfile.addValidationMessage("IncompleteInput-PatientLastNameisMissing", "lastName is null!");
+end
+
+rule "Non ML - Patient Profile - Gender Null Check" when
+    $patientProfile: /patientProfile [ mLOnlySync == false, gender == null || gender == "" ]
+then
+    $patientProfile.addValidationMessage("IncompleteInput-PatientGenderisMissing", "gender is null!");
+end
